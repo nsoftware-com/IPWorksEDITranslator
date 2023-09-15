@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F7E21004-385E-43DF-BD66-387DB450A2E2}</ProjectGuid>
+    <AssemblyName>x12parser-async</AssemblyName>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <OutputFileFolder>.\x12parser-async</OutputFileFolder>
+    <RootNamespace>x12parser</RootNamespace>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="licenses.licx" />
+  </ItemGroup>  
+  <ItemGroup>
+    <PackageReference Include="nsoftware.IPWorksEDITranslator" Version="22.*" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="x12parser-async.cs" />
+  </ItemGroup>
+</Project>
