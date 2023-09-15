@@ -5,14 +5,14 @@ The provided sample projects offer a concise yet effective demonstration of the 
 IPWorks EDI Translator 2022 libraries for the corresponding edition are required to run these samples.  Free download from: [https://www.nsoftware.com/ipworkseditranslator](https://www.nsoftware.com/ipworkseditranslator)
 
 ## Reference Documentation
-[Java](https://cdn.nsoftware.com/help/BKH/java/)
-[Javascript](https://cdn.nsoftware.com/help/BKH/js/)
-[.NET](https://cdn.nsoftware.com/help/BKH/cs/)
-[Python](https://cdn.nsoftware.com/help/BKH/py/)
-[PHP](https://cdn.nsoftware.com/help/BKH/php/)
-[C++](https://cdn.nsoftware.com/help/BKH/cpp/)
-[macOS](https://cdn.nsoftware.com/help/BKH/mac/)
-[iOS](https://cdn.nsoftware.com/help/BKH/mac/)
+* [Java Edition](https://cdn.nsoftware.com/help/BKH/java/)
+* [Javascript Edition](https://cdn.nsoftware.com/help/BKH/js/)
+* [.NET Edition](https://cdn.nsoftware.com/help/BKH/cs/)
+* [Python Edition](https://cdn.nsoftware.com/help/BKH/py/)
+* [PHP Edition](https://cdn.nsoftware.com/help/BKH/php/)
+* [C++ Edition](https://cdn.nsoftware.com/help/BKH/cpp/)
+* [macOS Edition](https://cdn.nsoftware.com/help/BKH/mac/)
+* [iOS Edition](https://cdn.nsoftware.com/help/BKH/mac/)
 
 ## Sample Projects
 | Sample Project | Description |
