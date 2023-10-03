@@ -6,11 +6,12 @@ IPWorks EDI Translator 2022 libraries for the corresponding edition are required
 
 ## Reference Documentation
 * [Java Edition](https://cdn.nsoftware.com/help/BKH/java/)
-* [Javascript Edition](https://cdn.nsoftware.com/help/BKH/js/)
 * [.NET Edition](https://cdn.nsoftware.com/help/BKH/cs/)
+* [JavaScript Edition](https://cdn.nsoftware.com/help/BKH/js/)
 * [Python Edition](https://cdn.nsoftware.com/help/BKH/py/)
 * [PHP Edition](https://cdn.nsoftware.com/help/BKH/php/)
 * [C++ Edition](https://cdn.nsoftware.com/help/BKH/cpp/)
+* [Delphi Edition](https://cdn.nsoftware.com/help/BKH/dlp/)
 * [macOS Edition](https://cdn.nsoftware.com/help/BKH/mac/)
 * [iOS Edition](https://cdn.nsoftware.com/help/BKH/mac/)
 

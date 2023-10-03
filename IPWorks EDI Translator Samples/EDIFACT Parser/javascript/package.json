@@ -8,7 +8,7 @@
   "main": "edifactparser.js",
   "dependencies": {
     "full-icu": "*",
-    "ipworkseditranslator": "^22.0.8658"
+    "ipworkseditranslator": "^22.0.8676"
   },
   "scripts": {
     "edifactparser": "node edifactparser.js"

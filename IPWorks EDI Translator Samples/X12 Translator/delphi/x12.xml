@@ -1,0 +1,136 @@
+<Interchange xmlns="http://www.nsoftware.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Meta>
+<ISA01 desc="Authorization Information Qualifier">00</ISA01>
+<ISA02 desc="Authorization Information">          </ISA02>
+<ISA03 desc="Security Information Qualifer">00</ISA03>
+<ISA04 desc="Security Information">          </ISA04>
+<ISA05 desc="Interchange ID Qualifier">ZZ</ISA05>
+<ISA06 desc="Interchange Sender ID">ACME           </ISA06>
+<ISA07 desc="Interchange ID Qualifier">ZZ</ISA07>
+<ISA08 desc="Interchange Receiver ID">WAYNE_TECH     </ISA08>
+<ISA09 desc="Interchange Date">160707</ISA09>
+<ISA10 desc="Interchange Time">1544</ISA10>
+<ISA11 desc="Interchange Control Standards Identifier">U</ISA11>
+<ISA12 desc="Interchange Control Version Number Code">00401</ISA12>
+<ISA13 desc="Inter Control Number">000000006</ISA13>
+<ISA14 desc="Acknowlegment Requested Code">0</ISA14>
+<ISA15 desc="Interchange Usage Indicator Code">T</ISA15>
+<ISA16 desc="Component Element Separator">&gt;</ISA16>
+</Meta>
+<FunctionalGroup>
+<Meta>
+<GS01 desc="Functional Identifier Code">IN</GS01>
+<GS02 desc="Application Sender&apos;s Code">ACME</GS02>
+<GS03 desc="Application Receiver&apos;s Code">WAYNE_TECH</GS03>
+<GS04 desc="Date">20160707</GS04>
+<GS05 desc="Time">1544</GS05>
+<GS06 desc="Group Control Number">6</GS06>
+<GS07 desc="Responsible Agency Code">T</GS07>
+<GS08 desc="Version / Release / Industry Identifier Code">004010</GS08>
+</Meta>
+<TransactionSet>
+<TX-NoSchema type="TransactionSet">
+<Meta>
+<ST01>810</ST01>
+<ST02>0001</ST02>
+</Meta>
+<BIG type="Segment">
+<BIG01>20150708</BIG01>
+<BIG02>3003014445</BIG02>
+<BIG03/>
+<BIG04>0476553272</BIG04>
+<BIG05/>
+<BIG06/>
+<BIG07>DR</BIG07>
+</BIG>
+<CUR type="Segment">
+<CUR01>SE</CUR01>
+<CUR02>USD</CUR02>
+</CUR>
+<REF type="Segment">
+<REF01>8M</REF01>
+<REF02>0056</REF02>
+</REF>
+<N1 type="Segment">
+<N101>BY</N101>
+<N102>Company</N102>
+<N103>92</N103>
+<N104>544380</N104>
+</N1>
+<N3 type="Segment">
+<N301>Address</N301>
+</N3>
+<N4 type="Segment">
+<N401>City</N401>
+<N402>CA</N402>
+<N403>Postal Code</N403>
+</N4>
+<N1 type="Segment">
+<N101>ST</N101>
+<N102>Name</N102>
+<N103>92</N103>
+<N104>0607047800010</N104>
+</N1>
+<N3 type="Segment">
+<N301>Address</N301>
+</N3>
+<N4 type="Segment">
+<N401>City</N401>
+<N402/>
+<N403>200131</N403>
+<N404>US</N404>
+</N4>
+<N1 type="Segment">
+<N101>RE</N101>
+<N102>Name</N102>
+<N103>92</N103>
+<N104>5095956</N104>
+</N1>
+<N3 type="Segment">
+<N301>Address</N301>
+</N3>
+<N4 type="Segment">
+<N401>City</N401>
+<N402>IL</N402>
+<N403>Postal Code</N403>
+</N4>
+<IT1 type="Segment">
+<IT101>20</IT101>
+<IT102>2500</IT102>
+<IT103>EA</IT103>
+<IT104>36.96</IT104>
+<IT105/>
+<IT106>BP</IT106>
+<IT107>335S0594</IT107>
+</IT1>
+<REF type="Segment">
+<REF01>KK</REF01>
+<REF02>0099778154</REF02>
+</REF>
+<REF type="Segment">
+<REF01>PO</REF01>
+<REF02>0476553272</REF02>
+<REF03>20</REF03>
+</REF>
+<TDS type="Segment">
+<TDS01>9240000</TDS01>
+</TDS>
+<CTT type="Segment">
+<CTT01>1</CTT01>
+</CTT>
+<SE type="Segment">
+<SE01>19</SE01>
+<SE02>0001</SE02>
+</SE>
+</TX-NoSchema>
+</TransactionSet>
+<GE type="Segment">
+<GE01>1</GE01>
+<GE02>6</GE02>
+</GE>
+</FunctionalGroup>
+<IEA type="Segment">
+<IEA01>1</IEA01>
+<IEA02>000000006</IEA02>
+</IEA>
+</Interchange>
