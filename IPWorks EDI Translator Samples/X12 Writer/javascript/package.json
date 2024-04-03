@@ -8,7 +8,7 @@
   "main": "x12writer.js",
   "dependencies": {
     "full-icu": "*",
-    "ipworkseditranslator": "^22.0.8676"
+    "ipworkseditranslator": "^22.0.8858"
   },
   "scripts": {
     "x12writer": "node x12writer.js"
