@@ -8,7 +8,7 @@
   "main": "edifactwriter.js",
   "dependencies": {
     "full-icu": "*",
-    "ipworkseditranslator": "^22.0.8858"
+    "ipworkseditranslator": "^22.0.8676"
   },
   "scripts": {
     "edifactwriter": "node edifactwriter.js"

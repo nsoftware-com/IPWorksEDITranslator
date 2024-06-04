@@ -18,14 +18,6 @@ from ipworkseditranslator import *
 
 input = sys.hexversion<0x03000000 and raw_input or input
 
-def ensureArg(args, prompt, index):
-  if len(args) <= index:
-    while len(args) <= index:
-      args.append(None)
-    args[index] = input(prompt)
-  elif args[index] == None:
-    args[index] = input(prompt)
-
 import sys
 import string
 from ipworkseditranslator import *
