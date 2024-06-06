@@ -1,5 +1,5 @@
 /*
- * IPWorks EDI Translator 2022 Java Edition - Sample Project
+ * IPWorks EDI Translator 2024 Java Edition - Sample Project
  *
  * This sample project demonstrates the usage of IPWorks EDI Translator in a 
  * simple, straightforward way. It is not intended to be a complete 
@@ -33,7 +33,7 @@ public class edifacttranslator extends ConsoleDemo {
 			System.out.println("\r\nExample: edifacttranslator 2 ./INVOICE.xml ./INVOIC_fromxml.edi");
 
 		} else {
-			Edifacttranslator editranslator1 = new Edifacttranslator();
+			EDIFACTTranslator editranslator1 = new EDIFACTTranslator();
 
 			System.out.println("This demo demonstrates the translation of EDIFACT files to XML and vice-versa through the use of the EDIFACTranslator component.");
 
@@ -52,8 +52,8 @@ public class edifacttranslator extends ConsoleDemo {
 						break;
 					case "2": System.out.println("Converting XML File to EDIFACT File.");
 						editranslator1.reset();
-						editranslator1.setInputFormat(Edifacttranslator.eifXML);
-						editranslator1.setOutputFormat(Edifacttranslator.eofEDIFACT);
+						editranslator1.setInputFormat(EDIFACTTranslator.eifXML);
+						editranslator1.setOutputFormat(EDIFACTTranslator.eofEDIFACT);
 						editranslator1.setInputFile(args[1]);
 						editranslator1.setOutputFile(args[2]);
 						editranslator1.setOverwrite(true);
@@ -93,15 +93,13 @@ class ConsoleDemo {
     System.out.print(label + punctuation + " ");
     return input();
   }
-
-  static String prompt(String label, String punctuation, String defaultVal)
-  {
-	System.out.print(label + " [" + defaultVal + "] " + punctuation + " ");
-	String response = input();
-	if(response.equals(""))
-		return defaultVal;
-	else
-		return response;
+  static String prompt(String label, String punctuation, String defaultVal) {
+      System.out.print(label + " [" + defaultVal + "] " + punctuation + " ");
+      String response = input();
+      if (response.equals(""))
+        return defaultVal;
+      else
+        return response;
   }
 
   static char ask(String label) {

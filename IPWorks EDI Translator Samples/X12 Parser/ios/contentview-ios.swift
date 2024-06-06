@@ -43,8 +43,8 @@ struct ContentView: View, X12ReaderDelegate {
   var documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] + "/"
   var formats = ["json","auto"]
   @State private var selectedFormat: String = "auto"
-  @State private var schema: String = "/Applications/IPWorks EDITranslator 2022 macOS Edition/demos/X12 Parser/RSSBus_00401_810.json"
-  @State private var filename: String = "/Applications/IPWorks EDITranslator 2022 macOS Edition/demos/X12 Parser/x12.txt"
+  @State private var schema: String = "/Applications/IPWorks EDI Translator 2024 macOS Edition/demos/X12 Parser/RSSBus_00401_810.json"
+  @State private var filename: String = "/Applications/IPWorks EDI Translator 2024 macOS Edition/demos/X12 Parser/x12.txt"
   @State private var outputRes: String = ""
   
   var body: some View {
@@ -87,9 +87,9 @@ struct ContentView: View, X12ReaderDelegate {
       {
         switch selectedFormat {
         case "json":
-          reader.schemaFormat = X12readerSchemaFormats.schemaJSON
+          reader.schemaFormat = X12ReaderSchemaFormats.schemaJSON
         default:
-          reader.schemaFormat = X12readerSchemaFormats.schemaAutomatic
+          reader.schemaFormat = X12ReaderSchemaFormats.schemaAutomatic
         }
         try reader.loadSchema(fileName: schema)
         reader.inputFile = filename

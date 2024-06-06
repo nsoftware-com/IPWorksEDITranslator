@@ -1,26 +1,20 @@
-<?php $sendBuffer = TRUE; ob_start(); ?>
-<html>
-<head>
-<title>IPWorks EDI Translator 2022 Demos - X12 Writer</title>
-<link rel="stylesheet" type="text/css" href="stylesheet.css">
-<meta name="description" content="IPWorks EDI Translator 2022 Demos - X12 Writer">
-</head>
-
-<body>
-
-<div id="content">
-<h1>IPWorks EDI Translator - Demo Pages</h1>
-<h2>X12 Writer</h2>
-<p>This demo shows how to use X12Writer to create X12 documents.</p>
-<a href="default.php">[Other Demos]</a>
-<hr/>
-
 <?php
+/*
+ * IPWorks EDI Translator 2024 PHP Edition - Sample Project
+ *
+ * This sample project demonstrates the usage of IPWorks EDI Translator in a 
+ * simple, straightforward way. It is not intended to be a complete 
+ * application. Error handling and other checks are simplified for clarity.
+ *
+ * www.nsoftware.com/ipworkseditranslator
+ *
+ * This code is subject to the terms and conditions specified in the 
+ * corresponding product license agreement which outlines the authorized 
+ * usage and restrictions.
+ */
 require_once('../include/ipworkseditranslator_x12writer.php');
 require_once('../include/ipworkseditranslator_const.php');
-
 ?>
-
 <?php
 //to print generated data to file, before calling the appropriate writeFile method, set
 //x12writer1->setOutputFile("filename.txt");
@@ -643,31 +637,3 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
   <input type="submit" name="write" value="Write Document" />
 </form>
 
-
-<br/>
-<br/>
-<br/>
-<hr/>
-NOTE: These pages are simple demos, and by no means complete applications.  They
-are intended to illustrate the usage of the IPWorks EDI Translator objects in a simple,
-straightforward way.  What we are hoping to demonstrate is how simple it is to
-program with our components.  If you want to know more about them, or if you have
-questions, please visit <a href="http://www.nsoftware.com/?demopg-BKPHA" target="_blank">www.nsoftware.com</a> or
-contact our technical <a href="http://www.nsoftware.com/support/">support</a>.
-<br/>
-<br/>
-Copyright (c) 2023 /n software inc.
-<br/>
-<br/>
-</div>
-
-<div id="footer">
-<center>
-IPWorks EDI Translator 2022 - Copyright (c) 2023 /n software inc. - For more information, please visit our website at <a href="http://www.nsoftware.com/?demopg-BKPHA" target="_blank">www.nsoftware.com</a>.
-</center>
-</div>
-
-</body>
-</html>
-
-<?php if ($sendBuffer) ob_end_flush(); else ob_end_clean(); ?>

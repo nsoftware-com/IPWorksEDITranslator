@@ -1,5 +1,5 @@
 /*
- * IPWorks EDI Translator 2022 Java Edition - Sample Project
+ * IPWorks EDI Translator 2024 Java Edition - Sample Project
  *
  * This sample project demonstrates the usage of IPWorks EDI Translator in a 
  * simple, straightforward way. It is not intended to be a complete 
@@ -30,7 +30,7 @@ public class x12parser extends ConsoleDemo {
             System.out.println("\r\nExample: x12parser ./x12.txt");
             
         } else {
-            X12reader x12reader1 = new X12reader();
+            X12Reader x12reader1 = new X12Reader();
 
             try {
                 
@@ -39,47 +39,47 @@ public class x12parser extends ConsoleDemo {
               System.out.println("* an X12 document. A sample X12 document is provided as well.  *");
               System.out.println("****************************************************************");
                 
-              x12reader1.addX12readerEventListener(new ipworkseditranslator.DefaultX12readerEventListener(){
-                  public void endFunctionalGroup(X12readerEndFunctionalGroupEvent e){
+              x12reader1.addX12ReaderEventListener(new ipworkseditranslator.DefaultX12ReaderEventListener(){
+                  public void endFunctionalGroup(X12ReaderEndFunctionalGroupEvent e){
                       System.out.println("EndFunctionalGroup: " + e.tag);
                   }
-                  public void endInterchange(X12readerEndInterchangeEvent e){
+                  public void endInterchange(X12ReaderEndInterchangeEvent e){
                       System.out.println("EndInterchange: " + e.tag);
                   }
-                  public void endLoop(X12readerEndLoopEvent e){
+                  public void endLoop(X12ReaderEndLoopEvent e){
                       System.out.println("EndLoop");
                   }
-                  public void endTransaction(X12readerEndTransactionEvent e){
+                  public void endTransaction(X12ReaderEndTransactionEvent e){
                       System.out.println("EndTransaction: " + e.tag);
                   }
-                  public void error(X12readerErrorEvent e){
+                  public void error(X12ReaderErrorEvent e){
                       System.out.println("ERROR: " + e.errorCode + ":" + e.description);
                   }
-                  public void resolveSchema(X12readerResolveSchemaEvent e){
+                  public void resolveSchema(X12ReaderResolveSchemaEvent e){
                       System.out.println("ResolveSchema: " + e.transactionCode);
                   }
-                  public void segment(X12readerSegmentEvent e){
+                  public void segment(X12ReaderSegmentEvent e){
                       System.out.println("Segment: " + e.name);
                   }
-                  public void startFunctionalGroup(X12readerStartFunctionalGroupEvent e){
+                  public void startFunctionalGroup(X12ReaderStartFunctionalGroupEvent e){
                       System.out.println("StartFunctionalGroup: " + e.tag);
                   }
-                  public void startInterchange(X12readerStartInterchangeEvent e){
+                  public void startInterchange(X12ReaderStartInterchangeEvent e){
                       System.out.println("StartInterchange: " + e.tag);
                   }
-                  public void startLoop(X12readerStartLoopEvent e){
+                  public void startLoop(X12ReaderStartLoopEvent e){
                       System.out.println("StartLoop: " + e.name);
                   }
-                  public void startTransaction(X12readerStartTransactionEvent e){
+                  public void startTransaction(X12ReaderStartTransactionEvent e){
                       System.out.println("StartTransaction: " + e.tag);
                   }
-                  public void warning(X12readerWarningEvent e){
+                  public void warning(X12ReaderWarningEvent e){
                       System.out.println("WARNING: " + e.warnCode + ": " + e.message);
                   }
               });
               
               x12reader1.config("Encoding=iso-8859-1");
-              x12reader1.setSchemaFormat(X12reader.schemaJSON);
+              x12reader1.setSchemaFormat(X12Reader.schemaJSON);
               x12reader1.loadSchema("./RSSBus_00401_810.json");
              
              //This demo provides information about the parsed document through the events.
@@ -117,15 +117,13 @@ class ConsoleDemo {
     System.out.print(label + punctuation + " ");
     return input();
   }
-
-  static String prompt(String label, String punctuation, String defaultVal)
-  {
-	System.out.print(label + " [" + defaultVal + "] " + punctuation + " ");
-	String response = input();
-	if(response.equals(""))
-		return defaultVal;
-	else
-		return response;
+  static String prompt(String label, String punctuation, String defaultVal) {
+      System.out.print(label + " [" + defaultVal + "] " + punctuation + " ");
+      String response = input();
+      if (response.equals(""))
+        return defaultVal;
+      else
+        return response;
   }
 
   static char ask(String label) {

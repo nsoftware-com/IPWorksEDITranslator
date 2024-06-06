@@ -1,5 +1,5 @@
 /*
- * IPWorks EDI Translator 2022 Java Edition - Sample Project
+ * IPWorks EDI Translator 2024 Java Edition - Sample Project
  *
  * This sample project demonstrates the usage of IPWorks EDI Translator in a 
  * simple, straightforward way. It is not intended to be a complete 
@@ -19,7 +19,7 @@ import ipworkseditranslator.*;
 
 public class x12writer extends ConsoleDemo {
 	public static void main(String[] args) {
-		X12writer x12writer = new X12writer();
+		X12Writer x12writer = new X12Writer();
 
 		try {
 
@@ -39,7 +39,7 @@ public class x12writer extends ConsoleDemo {
 
 			x12writer.config("Encoding=iso-8859-1");
 
-			x12writer.setSuffix(X12writer.suffixCRLF);
+			x12writer.setSuffix(X12Writer.suffixCRLF);
 
 			// will print output to console
 			x12writer.setOutputStream(System.out);
@@ -69,7 +69,7 @@ public class x12writer extends ConsoleDemo {
 		}
 	}
 
-	private static void writeFile_X12_810(X12writer x12writer) {
+	private static void writeFile_X12_810(X12Writer x12writer) {
 		try {
 			x12writer.startInterchangeHeader("004010");
 			x12writer.writeElementString("00");
@@ -217,7 +217,7 @@ public class x12writer extends ConsoleDemo {
 		}
 	}
 
-	private static void writeFile_X12_850(X12writer x12writer) {
+	private static void writeFile_X12_850(X12Writer x12writer) {
 		try {
 			x12writer.startInterchangeHeader("004010");
 			x12writer.writeElementString("00");
@@ -422,7 +422,7 @@ public class x12writer extends ConsoleDemo {
 		}
 	}
 
-	private static void writeFile_X12_855(X12writer x12writer) {
+	private static void writeFile_X12_855(X12Writer x12writer) {
 		try {
 			x12writer.startInterchangeHeader("004010");
 			x12writer.writeElementString("00");
@@ -516,7 +516,7 @@ public class x12writer extends ConsoleDemo {
 		}
 	}
 
-	private static void writeFile_X12_856(X12writer x12writer) {
+	private static void writeFile_X12_856(X12Writer x12writer) {
 		try {
 			x12writer.startInterchangeHeader("004010");
 			x12writer.writeElementString("00");
@@ -694,15 +694,13 @@ class ConsoleDemo {
     System.out.print(label + punctuation + " ");
     return input();
   }
-
-  static String prompt(String label, String punctuation, String defaultVal)
-  {
-	System.out.print(label + " [" + defaultVal + "] " + punctuation + " ");
-	String response = input();
-	if(response.equals(""))
-		return defaultVal;
-	else
-		return response;
+  static String prompt(String label, String punctuation, String defaultVal) {
+      System.out.print(label + " [" + defaultVal + "] " + punctuation + " ");
+      String response = input();
+      if (response.equals(""))
+        return defaultVal;
+      else
+        return response;
   }
 
   static char ask(String label) {

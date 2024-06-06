@@ -1,5 +1,5 @@
 /*
- * IPWorks EDI Translator 2022 Java Edition - Sample Project
+ * IPWorks EDI Translator 2024 Java Edition - Sample Project
  *
  * This sample project demonstrates the usage of IPWorks EDI Translator in a 
  * simple, straightforward way. It is not intended to be a complete 
@@ -32,7 +32,7 @@ public class x12translator extends ConsoleDemo {
 			System.out.println("\r\nExample: x12translator 2 ./810.xml ./810_fromxml.txt");
 
 		} else {
-			X12translator x12translator1 = new X12translator();
+			X12Translator x12translator1 = new X12Translator();
 
 			System.out.println("This demo demonstrates the translation of X12 files to XML and vice-versa through the use of the X12ranslator component.");
 
@@ -51,8 +51,8 @@ public class x12translator extends ConsoleDemo {
 						break;
 					case "2": System.out.println("Converting XML File to X12 File.");
 						x12translator1.reset();
-						x12translator1.setInputFormat(X12translator.xifXML);
-						x12translator1.setOutputFormat(X12translator.xofX12);
+						x12translator1.setInputFormat(X12Translator.xifXML);
+						x12translator1.setOutputFormat(X12Translator.xofX12);
 						x12translator1.setInputFile(args[1]);
 						x12translator1.setOutputFile(args[2]);
 						x12translator1.setOverwrite(true);
@@ -92,15 +92,13 @@ class ConsoleDemo {
     System.out.print(label + punctuation + " ");
     return input();
   }
-
-  static String prompt(String label, String punctuation, String defaultVal)
-  {
-	System.out.print(label + " [" + defaultVal + "] " + punctuation + " ");
-	String response = input();
-	if(response.equals(""))
-		return defaultVal;
-	else
-		return response;
+  static String prompt(String label, String punctuation, String defaultVal) {
+      System.out.print(label + " [" + defaultVal + "] " + punctuation + " ");
+      String response = input();
+      if (response.equals(""))
+        return defaultVal;
+      else
+        return response;
   }
 
   static char ask(String label) {

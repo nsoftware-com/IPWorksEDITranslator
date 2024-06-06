@@ -2,18 +2,18 @@
 The provided sample projects offer a concise yet effective demonstration of the components from IPWorks EDI Translator, showcasing their usage in a straightforward manner. While they are not intended to be complete applications, they serve as valuable illustrations of key features. To enhance clarity, error handling and checks are simplified, allowing users to focus on the core functionality.
 
 ## Requirements
-IPWorks EDI Translator 2022 libraries for the corresponding edition are required to run these samples.  Free download from: [https://www.nsoftware.com/ipworkseditranslator](https://www.nsoftware.com/ipworkseditranslator)
+IPWorks EDI Translator 2024 libraries for the corresponding edition are required to run these samples.  Free download from: [https://www.nsoftware.com/ipworkseditranslator](https://www.nsoftware.com/ipworkseditranslator)
 
 ## Reference Documentation
-* [Java Edition](https://cdn.nsoftware.com/help/BKH/java/)
-* [.NET Edition](https://cdn.nsoftware.com/help/BKH/cs/)
-* [JavaScript Edition](https://cdn.nsoftware.com/help/BKH/js/)
-* [Python Edition](https://cdn.nsoftware.com/help/BKH/py/)
-* [PHP Edition](https://cdn.nsoftware.com/help/BKH/php/)
-* [C++ Edition](https://cdn.nsoftware.com/help/BKH/cpp/)
-* [Delphi Edition](https://cdn.nsoftware.com/help/BKH/dlp/)
-* [macOS Edition](https://cdn.nsoftware.com/help/BKH/mac/)
-* [iOS Edition](https://cdn.nsoftware.com/help/BKH/mac/)
+* [Java Edition](https://cdn.nsoftware.com/help/BKJ/java/)
+* [.NET Edition](https://cdn.nsoftware.com/help/BKJ/cs/)
+* [JavaScript Edition](https://cdn.nsoftware.com/help/BKJ/js/)
+* [Python Edition](https://cdn.nsoftware.com/help/BKJ/py/)
+* [PHP Edition](https://cdn.nsoftware.com/help/BKJ/php/)
+* [C++ Edition](https://cdn.nsoftware.com/help/BKJ/cpp/)
+* [Delphi Edition](https://cdn.nsoftware.com/help/BKJ/dlp/)
+* [macOS Edition](https://cdn.nsoftware.com/help/BKJ/mac/)
+* [iOS Edition](https://cdn.nsoftware.com/help/BKJ/mac/)
 
 ## Sample Projects
 | Sample Project | Description |

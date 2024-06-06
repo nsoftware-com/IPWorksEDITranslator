@@ -2,13 +2,13 @@
 {
   "name": "ipworkseditranslator_x12writer_demo",
   "version": "0.0.1",
-  "description": "IPWorks EDI Translator 2022 JavaScript Edition - Demo Application",
+  "description": "IPWorks EDI Translator 2024 JavaScript Edition - Demo Application",
   "homepage": "http://www.nsoftware.com",
 	"author": "/n software inc. <sales@nsoftware.com>",
   "main": "x12writer.js",
   "dependencies": {
     "full-icu": "*",
-    "ipworkseditranslator": "^22.0.8676"
+    "ipworkseditranslator": "^24.0.8923"
   },
   "scripts": {
     "x12writer": "node x12writer.js"

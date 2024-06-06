@@ -1,5 +1,5 @@
 /*
- * IPWorks EDI Translator 2022 Java Edition - Sample Project
+ * IPWorks EDI Translator 2024 Java Edition - Sample Project
  *
  * This sample project demonstrates the usage of IPWorks EDI Translator in a 
  * simple, straightforward way. It is not intended to be a complete 
@@ -19,7 +19,7 @@ import ipworkseditranslator.*;
 
 public class edifactwriter extends ConsoleDemo {
     public static void main(String[] args) {
-        Edifactwriter edifactWriter = new Edifactwriter();
+        EDIFACTWriter edifactWriter = new EDIFACTWriter();
 
         try {
 
@@ -37,7 +37,7 @@ public class edifactwriter extends ConsoleDemo {
 
             edifactWriter.config("Encoding=iso-8859-1");
             edifactWriter.loadSchema(".\\RSSBus_D97A_" + docType + ".json");
-            edifactWriter.setSuffix(Edifactwriter.suffixCRLF);
+            edifactWriter.setSuffix(EDIFACTWriter.suffixCRLF);
 
             //will print output to console
             edifactWriter.setOutputStream(System.out);
@@ -68,7 +68,7 @@ public class edifactwriter extends ConsoleDemo {
         }
     }
 
-    private static void writeFile_EDIFACT_DESADV(Edifactwriter edifactWriter) {
+    private static void writeFile_EDIFACT_DESADV(EDIFACTWriter edifactWriter) {
         try {
             edifactWriter.startInterchangeHeader("D97A");
             edifactWriter.startElement();
@@ -248,7 +248,7 @@ public class edifactwriter extends ConsoleDemo {
         }
     }
 
-    private static void writeFile_EDIFACT_INVOIC(Edifactwriter edifactWriter) {
+    private static void writeFile_EDIFACT_INVOIC(EDIFACTWriter edifactWriter) {
         try {
             edifactWriter.startInterchangeHeader("D97A");
             edifactWriter.startElement();
@@ -1089,7 +1089,7 @@ public class edifactwriter extends ConsoleDemo {
         }
     }
 
-    private static void writeFile_EDIFACT_ORDERS(Edifactwriter edifactWriter) {
+    private static void writeFile_EDIFACT_ORDERS(EDIFACTWriter edifactWriter) {
         try {
             edifactWriter.startInterchangeHeader("D97A");
             edifactWriter.startElement();
@@ -1401,7 +1401,7 @@ public class edifactwriter extends ConsoleDemo {
         }
     }
 
-    private static void writeFile_EDIFACT_ORDRSP(Edifactwriter edifactWriter) {
+    private static void writeFile_EDIFACT_ORDRSP(EDIFACTWriter edifactWriter) {
         try {
             edifactWriter.startInterchangeHeader("D97A");
             edifactWriter.startElement();
@@ -1945,15 +1945,13 @@ class ConsoleDemo {
     System.out.print(label + punctuation + " ");
     return input();
   }
-
-  static String prompt(String label, String punctuation, String defaultVal)
-  {
-	System.out.print(label + " [" + defaultVal + "] " + punctuation + " ");
-	String response = input();
-	if(response.equals(""))
-		return defaultVal;
-	else
-		return response;
+  static String prompt(String label, String punctuation, String defaultVal) {
+      System.out.print(label + " [" + defaultVal + "] " + punctuation + " ");
+      String response = input();
+      if (response.equals(""))
+        return defaultVal;
+      else
+        return response;
   }
 
   static char ask(String label) {

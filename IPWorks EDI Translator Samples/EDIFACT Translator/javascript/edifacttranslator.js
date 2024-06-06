@@ -1,5 +1,5 @@
 /*
- * IPWorks EDI Translator 2022 JavaScript Edition - Sample Project
+ * IPWorks EDI Translator 2024 JavaScript Edition - Sample Project
  *
  * This sample project demonstrates the usage of IPWorks EDI Translator in a 
  * simple, straightforward way. It is not intended to be a complete 

@@ -1,5 +1,5 @@
 /*
- * IPWorks EDI Translator 2022 JavaScript Edition - Sample Project
+ * IPWorks EDI Translator 2024 JavaScript Edition - Sample Project
  *
  * This sample project demonstrates the usage of IPWorks EDI Translator in a 
  * simple, straightforward way. It is not intended to be a complete 
@@ -34,7 +34,7 @@ async function main() {
     console.log("");
     console.log("  file the file to parse");
     console.log("\r\nExample: node edifactparser.js ./INVOIC.edi");
-    return;
+    process.exit();
   }
 
   var edireader1 = new ipworkseditranslator.edifactreader();
@@ -97,9 +97,10 @@ async function main() {
     await edireader1.parse();
   } catch (err) {
     console.log(err);
-    return;
+    process.exit();
   }
   console.log("Parsing complete.");
+  process.exit();
 }
 
 function prompt(promptName, label, punctuation, defaultVal)

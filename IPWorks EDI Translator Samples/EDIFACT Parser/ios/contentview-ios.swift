@@ -56,8 +56,8 @@ struct ContentView: View, EDIFACTReaderDelegate {
   var documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] + "/"
   var formats = ["json","auto"]
   @State private var selectedFormat: String = "auto"
-  @State private var schema: String = "/Applications/IPWorks EDITranslator 2022 macOS Edition/demos/EDIFACT Parser/RSSBus_D97A_INVOIC.json"
-  @State private var filename: String = "/Applications/IPWorks EDITranslator 2022 macOS Edition/demos/EDIFACT Parser/INVOIC.edi"
+  @State private var schema: String = "/Applications/IPWorks EDI Translator 2024 macOS Edition/demos/EDIFACT Parser/RSSBus_D97A_INVOIC.json"
+  @State private var filename: String = "/Applications/IPWorks EDI Translator 2024 macOS Edition/demos/EDIFACT Parser/INVOIC.edi"
   @State private var outputRes: String = ""
   
   var body: some View {
@@ -99,9 +99,9 @@ struct ContentView: View, EDIFACTReaderDelegate {
       {
         switch selectedFormat {
         case "json":
-          reader.schemaFormat = EdifactreaderSchemaFormats.schemaJSON
+          reader.schemaFormat = EDIFACTReaderSchemaFormats.schemaJSON
         default:
-          reader.schemaFormat = EdifactreaderSchemaFormats.schemaAutomatic
+          reader.schemaFormat = EDIFACTReaderSchemaFormats.schemaAutomatic
         }
         try reader.loadSchema(fileName: schema)
         reader.inputFile = filename
