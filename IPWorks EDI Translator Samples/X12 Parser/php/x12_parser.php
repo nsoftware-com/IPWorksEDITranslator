@@ -16,132 +16,81 @@ require_once('../include/ipworkseditranslator_x12reader.php');
 require_once('../include/ipworkseditranslator_x12writer.php');
 require_once('../include/ipworkseditranslator_const.php');
 ?>
-
-
 <?php
-	$output='';
-	class MyX12Reader extends IPWorksEDITranslator_X12reader{
-		
-    	function fireEndFunctionalGroup($param){			
-			global $output;
-			$output.="EndFunctionalGroup: " . $param['tag'] . "\r\n";             				
-    	}
+class MyX12Reader extends IPWorksEDITranslator_X12reader {
+  function FireEndFunctionalGroup($param) {
+    echo "EndFunctionalGroup: " . $param['tag'] . "\n";
+  }
 
-		function fireEndInterchange($param){			
-			global $output;
-			$output.="EndInterchange: " . $param['tag'] . "\r\n";             				
-    	}
-		
-		function fireEndLoop($param){			
-			global $output;
-			$output.="EndLoop \r\n";             				
-    	}
-		
-		function fireEndTransaction($param){			
-			global $output;
-			$output.="EndTransaction: " . $param['tag'] . "\r\n";             				
-    	}
-		
-		function fireError($param){			
-			global $output;
-			$output.="ERROR " . $param['errorcode'] . ":" . $param['description'] . "\r\n";             				
-    	}
-		
-		function fireResolveSchema($param){			
-			global $output;
-			$output.="ResolveSchema: " . $param['transactioncode'] . "\r\n";             				
-    	}
-		
-		function fireSegment($param){			
-			global $output;
-			$output.="Segment: " . $param['name'] . "\r\n";             				
-    	}
-		
-		function fireStartFunctionalGroup($param){			
-			global $output;
-			$output.="StartFunctionalGroup: " . $param['tag'] . "\r\n";             				
-    	}
-		
-		function fireStartInterchange($param){			
-			global $output;
-			$output.="StartInterchange: " . $param['tag'] . "\r\n";             				
-    	}
-		
-		function fireStartLoop($param){			
-			global $output;
-			$output.="StartLoop: " . $param['name'] . "\r\n";             				
-    	}
-		function fireStartTransaction($param){			
-			global $output;
-			$output.="StartTransaction: " . $param['tag'] . "\r\n";             				
-    	}
-		
-		function fireWarning($param){			
-			global $output;
-			$output.="WARNING" . $param['warncode'] . ":" + $param['message'] . "\r\n";             				
-    	}
-  };
+  function FireEndInterchange($param) {
+    echo "EndInterchange: " . $param['tag'] . "\n";
+  }
   
+  function FireEndLoop($param) {
+    echo "EndLoop \n";
+  }
+  
+  function FireEndTransaction($param) {
+    echo "EndTransaction: " . $param['tag'] . "\n";
+  }
+  
+  function FireError($param) {
+    echo "Error: [" . $param['errorcode'] . "] " . $param['description'] . "\n";
+  }
+  
+  function FireResolveSchema($param) {
+    echo "ResolveSchema: " . $param['transactioncode'] . "\n";
+  }
+  
+  function FireSegment($param) {
+    echo "Segment: " . $param['name'] . "\n";
+  }
+  
+  function FireStartFunctionalGroup($param) {
+    echo "StartFunctionalGroup: " . $param['tag'] . "\n";
+  }
+  
+  function FireStartInterchange($param) {
+    echo "StartInterchange: " . $param['tag'] . "\n";
+  }
+  
+  function FireStartLoop($param) {
+    echo "StartLoop: " . $param['name'] . "\n";
+  }
+  function FireStartTransaction($param) {
+    echo "StartTransaction: " . $param['tag'] . "\n";
+  }
+
+  function FireWarning($param) {
+    echo "Warning [" . $param['warncode'] . "] " + $param['message'] . "\n";
+  }
+};
+
+try {
+  if ($argc < 3) {
+    echo "usage: php x12_parser.php -f file [-s schema]\n\n";
+    echo "  file         the X12 file to parse\n";
+    echo "  schema       the schema file to use when parsing the X12 document (optional)\n";
+    echo "\nExample: php x12_parser.php -f x12.txt -s RSSBus_00401_810.json\n";
+    return;
+  }
+
   $x12reader1 = new MyX12Reader();
 
-?>
+  for ($i = 0; $i < $argc; $i++) {
+    if (str_starts_with($argv[$i], "-")) {
+      if ($argv[$i] == "-f") {
+        $x12reader1->setInputFile($argv[$i + 1]);
+      }
+      if ($argv[$i] == "-s") {
+        $x12reader1->doLoadSchema($argv[$i + 1]);
+      }
+    }
+  }
 
-<?php
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
+  $x12reader1->doParse();
 
-   try{
-		$x12reader1->doConfig("ResolveXPathOnSet=true");
-        $x12reader1->doConfig("Encoding=iso-8859-1");
-        $x12reader1->doLoadSchema(getcwd() . "/RSSBus_00401_810.json");
-		$x12reader1->setInputData($_POST["input"]);
-        $x12reader1->doParse();
-	    
-	}catch (Exception $ex){
-		echo 'Error message: ', $x12reader1->lastErrorCode() , ' :', $x12reader1->lastError();
-	}
-
+} catch (Exception $e) {
+  echo "Error: " . $e->getMessage() . "\n";
 }
 ?>
-
-<form method=POST>
-<center>
-<table width="90%">
-<tr><td><b>EDI Data:</b></td><td><b>Parsed Result:</b></td>
-<tr><td><textarea name=input cols=110 rows=22>
-ISA*00*          *00*          *ZZ*ACME           *ZZ*WAYNE_TECH     *160707*1544*U*00401*000000006*0*T*>~
-GS*IN*ACME*WAYNE_TECH*20160707*1544*6*T*004010~
-ST*810*0001~
-BIG*20150708*3003014445**0476553272***DR~
-CUR*SE*USD~
-REF*8M*0056~
-N1*BY*Company*92*544380~
-N3*Address~
-N4*City*CA*Postal Code~
-N1*ST*Name*92*0607047800010~
-N3*Address~
-N4*City**200131*US~
-N1*RE*Name*92*5095956~
-N3*Address~
-N4*City*IL*Postal Code~
-IT1*20*2500*EA*36.96**BP*335S0594~
-REF*KK*0099778154~
-REF*PO*0476553272*20~
-TDS*9240000~
-CTT*1~
-SE*19*0001~
-GE*1*6~
-IEA*1*000000006~
-
-            
-</textarea>
-<td><textarea name=output cols=110 rows=22>
-<?php echo $output ?>
-</textarea>
-
-<tr><td><input type=submit value="Parse"><td>
-
-</table>
-</center>
-
-
-</form>

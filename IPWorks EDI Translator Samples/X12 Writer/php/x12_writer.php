@@ -16,10 +16,42 @@ require_once('../include/ipworkseditranslator_x12writer.php');
 require_once('../include/ipworkseditranslator_const.php');
 ?>
 <?php
-//to print generated data to file, before calling the appropriate writeFile method, set
-//x12writer1->setOutputFile("filename.txt");
+try {
+  if ($argc < 2) {
+    echo "Usage: php x12_writer.php doctype\n";
+    echo "  doctype    the document type to generate (810, 850, 855, or 856)\n";
+    echo "Example: php x12_writer.php 810\n";
+    return;
+  }
 
-$x12writer1 = new IPWorksEDITranslator_X12writer();
+  $x12writer1 = new IPWorksEDITranslator_X12writer();
+  $doctype = $argv[1];
+
+  echo "Attempting to generate X12 " . $doctype . " document...\n\n";
+
+  $x12writer1->doConfig("Encoding=iso-8859-1");
+  $x12writer1->setSuffix(3);
+  $x12writer1->doLoadSchema("RSSBus_00401_" . $doctype . ".json");
+
+  if ($doctype == "810") {
+    writeFile_X12_810($x12writer1);
+  } elseif ($doctype == "850") {
+    writeFile_X12_850($x12writer1);
+  } elseif ($doctype == "855") {
+    writeFile_X12_855($x12writer1);
+  } elseif ($doctype == "856") {
+    writeFile_X12_856($x12writer1);
+  }
+
+  //to print generated data to file, before calling the appropriate writeFile method, set
+  //x12writer1->setOutputFile("filename.txt");
+
+  echo $x12writer1->getOutputData() . "\n";
+
+} catch (Exception $e) {
+  echo "Error: " . $e->getMessage() . "\n";
+}
+
 
 function writeFile_X12_810($x12writer1) {
   $x12writer1->doStartInterchangeHeader("004010");
@@ -605,35 +637,4 @@ function writeFile_X12_856($x12writer1) {
 
   $x12writer1->doCreateInterchangeFooter();
 }
-
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
-  try{
-    $x12writer1->doConfig("Encoding=iso-8859-1");
-    $x12writer1->setSuffix(3); // CRLF
-    $x12writer1->doLoadSchema(getcwd() . "/RSSBus_00401_810.json");
-    if($_POST["docType"] == "810"){
-      writeFile_X12_810($x12writer1);
-    }else if($_POST["docType"] == "850"){
-      writeFile_X12_850($x12writer1);
-    }else if($_POST["docType"] == "855"){
-      writeFile_X12_855($x12writer1);
-    }else if($_POST["docType"] == "856"){
-      writeFile_X12_856($x12writer1);
-    }
-    echo '<p>' . $x12writer1->getOutputData() . '</p>';
-  }catch(Exception $ex){
-    echo '<p>There was an issue. [' . $x12writer1->lastErrorCode() . ']: ' . $x12writer1->lastError() . '</p>';
-  }
-}
-
 ?>
-
-<form method="POST">
-<select name="docType">
-  <option value="810">810</option>
-  <option value="850">850</option>
-  <option value="855">855</option>
-  <option value="856">856</option>
-  <input type="submit" name="write" value="Write Document" />
-</form>
-
